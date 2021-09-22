@@ -19,7 +19,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prepare": "husky install",
-    "husky-commit": "npx eslint ./src/*.js & npx prettier --write ./src/**/*.js"
+    "husky-commit": "npx eslint ./src/*.js & npx prettier --write ./src/**/*.js & git add ."
   },
   "eslintConfig": {
     "extends": [
