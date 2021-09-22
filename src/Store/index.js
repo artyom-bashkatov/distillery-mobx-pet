@@ -1,4 +1,5 @@
 import { makeAutoObservable } from "mobx";
+import { fetchBtcPrice } from "utils/cryptoRequests";
 
 class Store {
   // observable propertie
@@ -6,6 +7,10 @@ class Store {
 
   constructor() {
     makeAutoObservable(this);
+    setInterval(async () => {
+      const price = await fetchBtcPrice();
+      this.setPrice(price);
+    }, 2000);
   }
 
   // action to change observable propertie
