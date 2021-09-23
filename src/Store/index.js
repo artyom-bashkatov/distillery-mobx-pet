@@ -1,22 +1,13 @@
 import { makeAutoObservable } from "mobx";
-import { fetchBtcPrice } from "utils/cryptoRequests";
-
+import CoinStore from "./Coin";
 class Store {
-  // observable propertie
-  price = 0;
+  btc = new CoinStore("XBTUSDT");
+  eth = new CoinStore("ETHUSDT");
+  ada = new CoinStore("ADAUSDT");
 
   constructor() {
     makeAutoObservable(this);
-    setInterval(async () => {
-      const price = await fetchBtcPrice();
-      this.setPrice(price);
-    }, 2000);
   }
-
-  // action to change observable propertie
-  setPrice = (price) => {
-    this.price = price;
-  };
 }
 
 export default new Store();

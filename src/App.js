@@ -9,10 +9,18 @@ const App = observer(() => {
     <div className="App">
       <header className="App-header">
         <h1>Introduction to Mobx State Management</h1>
-        <h3>
-          BTC Price: {Store.price}$ - (Updated at):{" "}
-          {new Date().toLocaleTimeString()}
-        </h3>
+        <p>
+          BTC Price: {Store.btc.price}$ - (Updated at):{" "}
+          {Store.btc?.dateUpdated?.toLocaleTimeString()}
+        </p>
+        <p>
+          ETH Price: {Store.eth.price}$ - (Updated at):{" "}
+          {Store.eth?.dateUpdated?.toLocaleTimeString()}
+        </p>
+        <p>
+          ADA Price: {Store.ada.price}$ - (Updated at):{" "}
+          {Store.ada?.dateUpdated?.toLocaleTimeString()}
+        </p>
       </header>
     </div>
   );
