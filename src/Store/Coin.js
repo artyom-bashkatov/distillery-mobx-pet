@@ -1,4 +1,4 @@
-import { makeAutoObservable } from "mobx";
+import { computed, makeAutoObservable } from "mobx";
 import { fetchPrice } from "utils/cryptoRequests";
 
 class CoinStore {
@@ -8,10 +8,16 @@ class CoinStore {
   dateUpdated;
 
   constructor(name, ticker) {
-    makeAutoObservable(this);
+    makeAutoObservable(this, {
+      priceInRubles: computed,
+    });
     this.name = name;
     this.ticker = ticker;
     this.startInterval();
+  }
+
+  get priceInRubles() {
+    return this.price * 74;
   }
 
   startInterval = () => {

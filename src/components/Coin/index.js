@@ -4,9 +4,12 @@ import PropTypes from "prop-types";
 const Coin = ({ coin }) => {
   const { name, price, dateUpdated } = coin;
   return (
-    <p>
-      {name}: {price}$ - (Updated at): {dateUpdated}
-    </p>
+    <div>
+      <p>
+        {name}: {price}$ - (Updated at): {dateUpdated}
+      </p>
+      <p>Price in RUB (computed propertie example): {coin.priceInRubles}</p>
+    </div>
   );
 };
 
@@ -15,6 +18,7 @@ Coin.propTypes = {
     name: PropTypes.string,
     price: PropTypes.number,
     dateUpdated: PropTypes.string,
+    priceInRubles: PropTypes.func,
   }),
 };
 
