@@ -1,11 +1,13 @@
 import { computed, makeAutoObservable } from "mobx";
 import { fetchPrice } from "utils/cryptoRequests";
+import { fromPromise } from "mobx-utils";
 
 class CoinStore {
   name;
   price = 0;
   ticker;
   dateUpdated;
+  extendedInfo = fromPromise(this.loadInfo());
 
   constructor(name, ticker) {
     makeAutoObservable(this, {
@@ -14,6 +16,14 @@ class CoinStore {
     this.name = name;
     this.ticker = ticker;
     this.startInterval();
+  }
+
+  loadInfo() {
+    return new Promise((resolve) =>
+      setTimeout(() => {
+        resolve(200);
+      }, 5000)
+    );
   }
 
   get priceInRubles() {
