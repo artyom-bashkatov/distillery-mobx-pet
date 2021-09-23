@@ -24,7 +24,7 @@ class CoinStore {
   // action to change observable propertie
   setPrice = (price) => {
     this.price = price;
-    this.dateUpdated = new Date();
+    this.dateUpdated = new Date().toLocaleTimeString();
   };
 }
 
