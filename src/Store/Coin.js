@@ -2,12 +2,14 @@ import { makeAutoObservable } from "mobx";
 import { fetchPrice } from "utils/cryptoRequests";
 
 class CoinStore {
+  name;
   price = 0;
   ticker;
   dateUpdated;
 
-  constructor(ticker) {
+  constructor(name, ticker) {
     makeAutoObservable(this);
+    this.name = name;
     this.ticker = ticker;
     this.startInterval();
   }

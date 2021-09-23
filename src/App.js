@@ -9,18 +9,14 @@ const App = observer(() => {
     <div className="App">
       <header className="App-header">
         <h1>Introduction to Mobx State Management</h1>
-        <p>
-          BTC Price: {Store.btc.price}$ - (Updated at):{" "}
-          {Store.btc?.dateUpdated?.toLocaleTimeString()}
-        </p>
-        <p>
-          ETH Price: {Store.eth.price}$ - (Updated at):{" "}
-          {Store.eth?.dateUpdated?.toLocaleTimeString()}
-        </p>
-        <p>
-          ADA Price: {Store.ada.price}$ - (Updated at):{" "}
-          {Store.ada?.dateUpdated?.toLocaleTimeString()}
-        </p>
+        {Store.coins.map((coin) => {
+          return (
+            <p key={coin.name}>
+              {coin.name}: {coin.price}$ - (Updated at):{" "}
+              {coin?.dateUpdated?.toLocaleTimeString()}
+            </p>
+          );
+        })}
       </header>
     </div>
   );

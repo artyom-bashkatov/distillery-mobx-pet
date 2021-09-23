@@ -1,9 +1,11 @@
 import { makeAutoObservable } from "mobx";
 import CoinStore from "./Coin";
 class Store {
-  btc = new CoinStore("XBTUSDT");
-  eth = new CoinStore("ETHUSDT");
-  ada = new CoinStore("ADAUSDT");
+  coins = [
+    new CoinStore("Bitcoin", "XBTUSDT"),
+    new CoinStore("Etherium", "ETHUSDT"),
+    new CoinStore("Cardano", "ADAUSDT"),
+  ];
 
   constructor() {
     makeAutoObservable(this);
