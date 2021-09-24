@@ -12,4 +12,5 @@ class Store {
   }
 }
 
-export default new Store();
+const mainStore = new Store();
+export { mainStore };
