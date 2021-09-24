@@ -5,6 +5,7 @@ import { fromPromise } from "mobx-utils";
 class CoinStore {
   name;
   price = 0;
+  countChanges = 0;
   ticker;
   dateUpdated;
   extendedInfo = fromPromise(this.loadInfo());
@@ -35,6 +36,10 @@ class CoinStore {
       const price = await fetchPrice(this.ticker);
       this.setPrice(price);
     }, 2000);
+  };
+
+  changeCount = () => {
+    this.countChanges = this.countChanges + 1;
   };
 
   // action to change observable propertie
