@@ -32,9 +32,11 @@ const App = observer(() => {
             <div></div>
           </div>
         )}
-        {mainStore.coins.map((coin) => {
-          return <Coin key={coin.name} coin={coin} />;
-        })}
+        <div className="grid-container">
+          {mainStore.coins.map((coin) => {
+            return <Coin key={coin.name} coin={coin} />;
+          })}
+        </div>
         <p>Etherium price changes: {mainStore.coins[1].countChanges}</p>
       </header>
     </div>
