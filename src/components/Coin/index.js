@@ -16,7 +16,7 @@ const Coin = ({ coin }) => {
   };
 
   return (
-    <div>
+    <div className="grid-item">
       <p>
         {name}: {price}$ - (Updated at): {dateUpdated}
       </p>
